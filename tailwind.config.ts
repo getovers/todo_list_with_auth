@@ -9,6 +9,12 @@ export default {
   theme: {
     extend: {
       colors: {
+        grayBorder: "#2f3339",
+        todosBg: "#3d424a",
+        inputBg: "#353a40",
+        todoDescr: "#90979f",
+        todoTitle: "#fff",
+        inputText: "#70757e"
 
       },
     },

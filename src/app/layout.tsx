@@ -9,7 +9,7 @@ export default function RootLayout({
         <body>
         <div className="grid grid-rows-[100px_1fr] grid-cols-1 v-screen h-screen bg-[#EA5F8E]">
             <Header/>
-            <div className="">
+            <div>
                 {children}
             </div>
         </div>

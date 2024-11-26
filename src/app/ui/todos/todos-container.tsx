@@ -4,12 +4,6 @@ export default function TodosContainer() {
     return (
         <div className="flex flex-col gap-4 overflow-auto h-full">
             <TodoTask/>
-            <TodoTask/>
-            <TodoTask/>
-            <TodoTask/>
-            <TodoTask/>
-            <TodoTask/>
-            <TodoTask/>
         </div>
     )
 }

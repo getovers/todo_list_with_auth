@@ -1,7 +1,7 @@
-export default function InputField ({type}: {type: string}) {
+export default function InputField ({name, type}: {name: string, type: string} ) {
     return (
         <div>
-            <input type={type} id="login" name="login" autoComplete="off"
+            <input type={type} id="login" name={name} autoComplete="off"
                    className="w-full border-b border-b-gray-300 bg-transparent focus: outline-none"/>
         </div>
     )

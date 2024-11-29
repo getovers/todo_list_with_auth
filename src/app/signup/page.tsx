@@ -13,17 +13,17 @@ export default function Page() {
                         <div className="text-mainpink text-2xl font-semibold ">CREATE AN ACCOUNT</div>
                         <div className="flex justify-between items-center gap-2">
                             <UserRound className="text-todoDescr size-4 stroke-[3] "/>
-                            <Link href="#" className="font-semibold">Sign in</Link>
+                            <Link href="/login" className="font-semibold">Sign in</Link>
                         </div>
                     </div>
                     <div className="px-10 py-6 text-lg flex gap-5 flex-col">
                         <div>
                             <label htmlFor="login" className="font-medium text-todoDescr">Login</label>
-                            <InputField type="text"/>
+                            <InputField type="text" name="login"/>
                         </div>
                         <div>
                             <label htmlFor="password" className="font-medium text-todoDescr">Password</label>
-                            <InputField type="password"/>
+                            <InputField type="password" name="password"/>
                         </div>
                     </div>
                     <div className="flex justify-center items-end p-8">

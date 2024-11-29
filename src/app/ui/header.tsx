@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Header() {
     return (
         <header className="bg-gray-200 flex justify-between text-2xl py-5 px-10">
@@ -5,7 +7,7 @@ export default function Header() {
             <div className="h-full w-1/3 flex items-center justify-center font-semibold">Ласкаво просимо, user <span>&#x1F44B;</span></div>
             <div className="flex h-full w-1/3 items-center justify-end">
                 <div className="px-2 py-1 text-xl cursor-pointer hover:bg-[#EA5F8E] hover:rounded hover:text-white transition duration-300">
-                    <button className="rounded w-full h-full">Вийти</button>
+                    <Link href={"/login"} className="rounded w-full h-full ">Вийти</Link>
                 </div>
             </div>
         </header>

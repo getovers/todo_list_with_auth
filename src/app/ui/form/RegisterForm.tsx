@@ -5,7 +5,7 @@ import Link from "next/link";
 import SubmitButton from "@/app/ui/form/submit-button";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
-import {useSession} from "next-auth/react";
+// import {useSession} from "next-auth/react";
 
 export default function RegisterForm() {
     const [username, setUsername] = useState("");
@@ -14,8 +14,8 @@ export default function RegisterForm() {
 
     const router = useRouter();
 
-    const session = useSession();
-    console.log(session);
+    // const session = useSession();
+    // console.log(session);
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,7 +43,6 @@ export default function RegisterForm() {
                 setPassword("");
                 setError("");
                 router.push("/main");
-                router.refresh()
 
             } else {
                 const data = await res.json();

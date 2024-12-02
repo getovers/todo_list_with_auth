@@ -4,7 +4,7 @@ import {Plus} from "lucide-react";
 import Link from "next/link";
 import SubmitButton from "@/app/ui/form/submit-button";
 import {useState} from "react";
-import {signIn, useSession} from "next-auth/react";
+import {signIn} from "next-auth/react";
 import { useRouter} from "next/navigation";
 
 export default function LoginForm() {
@@ -13,8 +13,6 @@ export default function LoginForm() {
     const [error, setError] = useState("");
 
     const router = useRouter();
-    const session = useSession();
-    console.log(session);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -24,9 +22,11 @@ export default function LoginForm() {
             );
 
             if (res?.error) {
+                console.log(res);
                 setError("Invalid Credentials");
                 return;
             }
+
 
             router.replace("/main");
         } catch (error) {

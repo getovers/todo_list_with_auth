@@ -12,17 +12,16 @@ export const authOptions = {
 
             async authorize(credentials) {
                 const {username, password} = credentials;
-
+                // console.log({username, password});
                 try {
                     await connectMongoDB();
                     const user = await User.findOne({username})
-
+                    // console.log(user);
                     if (!user) return null;
 
                     const passwordMatch = await bcrypt.compare(password, user.password);
 
                     if (!passwordMatch) return null;
-                    console.log(user)
                     return user;
                 } catch (error) {
                     console.log("Error:", error);
@@ -30,13 +29,26 @@ export const authOptions = {
             }
         })
     ],
+    callbacks: {
+        async session({session, token}) {
+            session.user = {...token.user, name: token.user.username};
+            ;
+            return session;
+        },
+        async jwt({token, user}) {
+            if (user) {
+                token.user = user;
+            }
+            return token;
+        },
+    },
     session: {
         strategy: "jwt",
     },
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
-        signIn: "/",
-    }
+        signIn: "/login",
+    },
 }
 const handler = NextAuth(authOptions);
 

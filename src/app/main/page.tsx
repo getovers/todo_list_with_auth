@@ -1,11 +1,16 @@
 import MainPage from "@/app/ui/todos/main-page";
-import {useSession} from "next-auth/react";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/api/auth/[...nextauth]/route";
-
+import {redirect} from "next/navigation";
 export default async function Page() {
-    const data = await getServerSession();
-    console.log({data})
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    const session = await getServerSession(authOptions)
+
+    if (!session) {
+        redirect("/login");
+    }
     return <MainPage />;
 
 }

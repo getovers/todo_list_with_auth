@@ -4,7 +4,7 @@ import { Todo } from "../../../lib/definitions"
 
 export default async function TodosContainer() {
     const tasks = await getTodos();
-    // console.log(tasks)
+    console.log({tasks})
     return (
         <div className="flex flex-col gap-4 overflow-auto h-full">
             {tasks.map((todo:Todo) => (

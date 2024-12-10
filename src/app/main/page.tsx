@@ -11,6 +11,6 @@ export default async function Page() {
     if (!session) {
         redirect("/login");
     }
-    return <MainPage />;
+    return <MainPage  />;
 
 }

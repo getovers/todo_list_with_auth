@@ -2,10 +2,14 @@
 import {CirclePlus} from "lucide-react";
 import {useState} from "react";
 import { useRouter } from "next/navigation";
+import {useSession} from "next-auth/react";
 
 export default function InputForm() {
     const [description, setDescription] = useState("");
     const router = useRouter();
+
+    const session = useSession();
+    const creator_username = session.data?.user?.name;
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -16,12 +20,12 @@ export default function InputForm() {
         }
 
         try {
-            const res = await fetch('http://localhost:3000/api/tasks', {
+            const res = await fetch('http://localhost:3000/api/tasks ', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({description, is_completed: false}),
+                body: JSON.stringify({description, is_completed: false, creator_username}),
             })
             if (res.ok) {
                 setDescription('')

@@ -1,7 +1,7 @@
 
-export const getTodos = async() => {
+export const getTodos = async(creator_username: string | undefined) => {
     try {
-        const res = await fetch('http://localhost:3000/api/tasks', {
+        const res = await fetch(`http://localhost:3000/api/tasks?creator_username=${creator_username}`, {
             cache: "no-store"
         });
 

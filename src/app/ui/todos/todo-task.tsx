@@ -32,6 +32,7 @@ export default function TodoTask({description, completed, id}: {
         }
     }
 
+
     return (
         <div className="flex w-full justify-between h-min gap-4 text-lg">
             <div className="flex justify-center items-center">

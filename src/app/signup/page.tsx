@@ -1,7 +1,7 @@
-import RegisterForm from "@/app/ui/form/RegisterForm";
+import RegisterForm from '@/app/ui/form/RegisterForm'
 
 export default function Page() {
-    return (
-        <RegisterForm/>
-    )
+  return (
+    <RegisterForm/>
+  )
 }

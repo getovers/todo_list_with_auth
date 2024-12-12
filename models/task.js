@@ -1,11 +1,11 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose'
 
 const taskSchema = new Schema({
-    description: String,
-    is_completed: Boolean,
-    creator_username: String,
+  description: String,
+  is_completed: Boolean,
+  creator_username: String,
 })
 
-const Task = mongoose.models.Task || mongoose.model("Task", taskSchema);
+const Task = mongoose.models.Task || mongoose.model('Task', taskSchema)
 
-export default Task;
+export default Task

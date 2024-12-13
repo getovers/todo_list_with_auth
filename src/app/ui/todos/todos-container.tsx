@@ -2,7 +2,7 @@ import TodoTask from '@/app/ui/todos/todo-task'
 import { getTodos } from '@/lib/data'
 import { Todo } from '@/lib/definitions'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/lib/auth'
 
 export default async function TodosContainer() {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

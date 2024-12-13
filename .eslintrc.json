@@ -1,5 +1,9 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
+  "ignorePatterns": [
+    ".eslintrc.json",
+    "src/components"
+  ],
   "rules": {
     "quotes": ["error", "single"],
     "indent": ["error", 2],
@@ -8,6 +12,15 @@
     "semi": ["error", "never"],
     "no-multiple-empty-lines": ["error", { "max": 1 }],
     "no-duplicate-imports": "error",
-    "object-curly-spacing": ["error", "always"]
+    "object-curly-spacing": ["error", "always"],
+    "no-warning-comments": [
+      "warn",
+      {
+        "terms": ["fixme", "note", "review", "bug"],
+        "location": "anywhere"
+      }
+    ],
+    "max-len": ["error", { "code": 140, "ignoreUrls": true }],
+    "brace-style": ["error", "1tbs"]
   }
 }

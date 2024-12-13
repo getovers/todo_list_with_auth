@@ -45,7 +45,8 @@ export default function InputForm() {
           <CirclePlus size={30} strokeWidth={2} className="hover:text-mainpink"/>
         </button>
         <input type="text" value={description}
-          className="text-justify bg-transparent focus: outline-none  h-full text-inputText text-xl placeholder-inputText w-full selection:text-white selection:bg-todoDescr"
+          className="text-justify bg-transparent focus: outline-none  h-full text-inputText text-xl placeholder-inputText w-full
+          selection:text-white selection:bg-todoDescr"
           placeholder="Додати завдання..." onChange={(e)=>setDescription(e.target.value)}/>
       </div>
     </form>

@@ -5,7 +5,6 @@ import Link from 'next/link'
 import SubmitButton from '@/app/ui/form/submit-button'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-// import {useSession} from "next-auth/react";
 
 export default function RegisterForm() {
   const [username, setUsername] = useState('')
@@ -78,7 +77,8 @@ export default function RegisterForm() {
             <div>
               <label htmlFor="password" className="font-medium text-todoDescr">Password</label>
               <div className="h-auto w-full border-b border-b-gray-300 flex gap-3">
-                <input type={passwordInputType} autoComplete="off" onChange={(e) => setPassword(e.target.value)} value={password} className="w-full bg-transparent focus: outline-none" id="password"/>
+                <input type={passwordInputType} autoComplete="off" onChange={(e) => setPassword(e.target.value)}
+                  value={password} className="w-full bg-transparent focus: outline-none" id="password"/>
                 <div className="flex justify-end items-center">
                   <Eye className="text-todoDescr size-5 stroke-2 cursor-pointer hover:text-mainpink" onClick={() => showPassword()} />
                 </div>

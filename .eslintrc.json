@@ -3,7 +3,7 @@
   "rules": {
     "quotes": ["error", "single"],
     "indent": ["error", 2],
-    "no-trailing-spaces": "error", //заборона зайвих пробілів,
+//    "no-trailing-spaces": "error", //заборона зайвих пробілів,
     "prefer-const": "error",
     "semi": ["error", "never"],
     "no-multiple-empty-lines": ["error", { "max": 1 }],

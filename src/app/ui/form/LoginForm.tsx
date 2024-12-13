@@ -1,6 +1,6 @@
 'use client'
 
-import { Plus } from 'lucide-react'
+import { Eye, Plus } from 'lucide-react'
 import Link from 'next/link'
 import SubmitButton from '@/app/ui/form/submit-button'
 import { useState } from 'react'
@@ -11,6 +11,8 @@ export default function LoginForm() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false)
+  const [passwordInputType, setPasswordInputType] = useState('password')
 
   const router = useRouter()
 
@@ -32,6 +34,12 @@ export default function LoginForm() {
       console.log(error)
     }
   }
+  const showPassword = () => {
+    setIsVisiblePassword(!isVisiblePassword)
+    const type = isVisiblePassword ? 'text' : 'password'
+    setPasswordInputType(type)
+  }
+
   return (
     <main className="grid grid-cols-2 grid-rows-1 w-screen h-screen">
       <div className=" bg-mainpink flex justify-center items-center text-4xl text-white">Todo App</div>
@@ -54,9 +62,15 @@ export default function LoginForm() {
             </div>
             <div>
               <label htmlFor="password" className="font-medium text-todoDescr">Password</label>
-              <input type="password" autoComplete="off" onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                className="w-full border-b border-b-gray-300 bg-transparent focus: outline-none" id="password"/>
+              <div className="h-auto w-full border-b border-b-gray-300 flex gap-3">
+                <input type={passwordInputType} autoComplete="off" onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  className="w-full bg-transparent focus: outline-none" id="password"/>
+                <div className="flex justify-end items-center">
+                  <Eye className="text-todoDescr size-5 stroke-2 cursor-pointer hover:text-mainpink" onClick={() => showPassword()}/>
+                </div>
+              </div>
+
             </div>
             {error && (
               <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2 ">

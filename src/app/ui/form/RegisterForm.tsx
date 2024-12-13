@@ -1,6 +1,6 @@
 'use client'
 
-import { UserRound } from 'lucide-react'
+import { Eye, UserRound } from 'lucide-react'
 import Link from 'next/link'
 import SubmitButton from '@/app/ui/form/submit-button'
 import { useState } from 'react'
@@ -11,11 +11,10 @@ export default function RegisterForm() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false)
+  const [passwordInputType, setPasswordInputType] = useState('password')
 
   const router = useRouter()
-
-  // const session = useSession();
-  // console.log(session);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -53,6 +52,11 @@ export default function RegisterForm() {
     }
   }
 
+  const showPassword = () => {
+    setIsVisiblePassword(!isVisiblePassword)
+    const type = isVisiblePassword ? 'text' : 'password'
+    setPasswordInputType(type)
+  }
   return (
     <main className="grid grid-cols-2 grid-rows-1 w-screen h-screen">
       <div className="bg-gray-200 flex justify-center items-center text-4xl">Todo App</div>
@@ -73,8 +77,12 @@ export default function RegisterForm() {
             </div>
             <div>
               <label htmlFor="password" className="font-medium text-todoDescr">Password</label>
-              <input id="password" type="password" autoComplete="off" onChange={(e) => setPassword(e.target.value)} value={password}
-                className="w-full border-b border-b-gray-300 bg-transparent focus: outline-none"/>
+              <div className="h-auto w-full border-b border-b-gray-300 flex gap-3">
+                <input type={passwordInputType} autoComplete="off" onChange={(e) => setPassword(e.target.value)} value={password} className="w-full bg-transparent focus: outline-none" id="password"/>
+                <div className="flex justify-end items-center">
+                  <Eye className="text-todoDescr size-5 stroke-2 cursor-pointer hover:text-mainpink" onClick={() => showPassword()} />
+                </div>
+              </div>
             </div>
 
             {error && (

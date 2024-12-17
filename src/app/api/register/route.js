@@ -5,8 +5,8 @@ import bcrypt from 'bcryptjs'
 
 export async function POST(req) {
   try {
+    await connectMongoDB()
     const { username, password } = await req.json()
-    // console.log({username, password});
     const hashedPassword = await bcrypt.hash(password, 12)
     const existingUser = await User.findOne({ username })
 
@@ -16,7 +16,6 @@ export async function POST(req) {
         { status: 409 } // conflict status
       )
     }  else {
-      await connectMongoDB()
       await User.create({ username, password: hashedPassword })
     }
 
